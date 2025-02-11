@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class = header>
@@ -19,11 +19,12 @@
 </nav>
 
 <main class="container">
-    <h2>Attraktioner</h2>
-    <p>Vælg en attraction for at se information</p>
+    <p class = "headline">Vælg en attraction for at se information</p>
 
-    <ul>
-        <li th:each="attraction : ${attractions}">
+    <ul class="attractionListUl" >
+        <li th:each="attraction : ${attractions}"
+            class="attractionListIl"
+            th:style="'background-image: url(' + @{/images/{img}(img=${attraction.imagePath})} + ');'">
             <a th:href="@{/attractions/{name}(name=${attraction.name})}" th:text="${attraction.name}"></a>
         </li>
     </ul>

@@ -16,16 +16,16 @@ public class TouristService {
     }
 
 
-    public TouristAttraction addAttraction(String name, String description) {
-        return touristRepository.addAttraction(name, description);
+    public TouristAttraction addAttraction(String name, String description, String imagePath) {
+        return touristRepository.addAttraction(name, description, imagePath);
     }
 
     public boolean removeAttraction(String name) {
         return touristRepository.removeAttraction(name);
     }
 
-    public TouristAttraction editAttraction(String name, String newDescription) {
-        return touristRepository.editAttraction(name, newDescription);
+    public TouristAttraction editAttraction(String name, String newDescription, String imagePath) {
+        return touristRepository.editAttraction(name, newDescription, imagePath);
     }
 
     public List<TouristAttraction> seeAttractions() {

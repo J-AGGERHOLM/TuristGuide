@@ -48,8 +48,8 @@ public String getIndex(){
 
 
     @PostMapping("/attractions/add")
-    public String addTouristAttraction(@RequestParam String name, @RequestParam String description, Model model) {
-        TouristAttraction newTouristAttraction = touristService.addAttraction(name, description);
+    public String addTouristAttraction(@RequestParam String name, @RequestParam String description, @RequestParam String imagePath, Model model) {
+        TouristAttraction newTouristAttraction = touristService.addAttraction(name, description,imagePath);
         model.addAttribute("newAttraction", newTouristAttraction);
         return "newAttraction";
     }
@@ -57,7 +57,7 @@ public String getIndex(){
 
     @PostMapping("/attractions/update")
     public String updateAttraction(@ModelAttribute TouristAttraction updatedAttraction, Model model) {
-        TouristAttraction touristAttraction = touristService.editAttraction(updatedAttraction.getName(), updatedAttraction.getDescription());
+        TouristAttraction touristAttraction = touristService.editAttraction(updatedAttraction.getName(), updatedAttraction.getDescription(), updatedAttraction.getImagePath());
         model.addAttribute("updatedAttraction", touristAttraction);
         return "attraction-detail";
     }

@@ -4,10 +4,12 @@ public class TouristAttraction {
 
     private String name;
     private String description;
+    private String imagePath;
 
-    public TouristAttraction(String name, String description){
+    public TouristAttraction(String name, String description, String imagePath){
         this.name = name;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
 
@@ -28,5 +30,11 @@ public class TouristAttraction {
         this.description = description;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
+    public String getImagePath() {
+        return imagePath;
+    }
 }
