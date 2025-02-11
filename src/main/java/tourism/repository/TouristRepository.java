@@ -17,8 +17,8 @@ public class TouristRepository {
         addAttraction("Den Lille Havfrue", "pizaaaa","denLilleHavfrue.webp");
         addAttraction("Tivoli", "sadd vodka", "tivoli.webp");
         addAttraction("Zoologisk Have", "pizaaaa", "zoologiskHave.jpg");
-//        addAttraction("Den Blå Planet", "sadd vodka");
-//        addAttraction("SMK - Statens Museum For Kunst", "pizaaaa");
+        addAttraction("Den Blå Planet", "sadd vodka", "denBlåPlanet.jpeg");
+        addAttraction("Jailhouse", "pizaaaa", "jailHouse.jpg");
 //        addAttraction("Amalienborg Slot", "sadd vodka");
     }
 
