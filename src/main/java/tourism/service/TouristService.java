@@ -29,7 +29,7 @@ public class TouristService {
     }
 
     public List<TouristAttraction> seeAttractions() {
-        return touristRepository.seeAttraction();
+        return touristRepository.seeAttractions();
     }
 
     public TouristAttraction findByName(String name){

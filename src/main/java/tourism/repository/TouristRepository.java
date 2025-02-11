@@ -46,13 +46,14 @@ public class TouristRepository {
         return touristAttraction;
     }
 
-    public List<TouristAttraction> seeAttraction(){
+    public List<TouristAttraction> seeAttractions(){
         return touristAttractions;
     }
 
     public TouristAttraction findByName (String name){
         for (TouristAttraction touristAttraction : touristAttractions){
             if (touristAttraction.getName().equals(name)){
+                System.out.println(touristAttraction.getName());
                 return touristAttraction;
             }
         }

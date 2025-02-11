@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns : th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+</head>
+<body>
+<div class = header>
+    <h1>Turist Guide</h1>
+</div>
+
+<nav class="container">
+    <ul>
+        <li><a th:href="@{/}">Hjem</a></li>
+        <li><a th:href="@{/attractions}">Attractions</a></li>
+        <li><a th:href="@{/contact}">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <h2>Attraktioner</h2>
+    <p>Vælg en attraction for at se information</p>
+
+    <ul>
+        <li th:each="attraction : ${attractions}">
+            <a th:href="@{/attraction/{name}(name=${attraction.name})}" th:text="${attraction.name}"></a>
+        </li>
+    </ul>
+</main>
+
+<footer class="footer">
+    <p><a href="mailto:info@example.com">info@example.com</a></p>
+    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span> Tourist Guide</p>
+</footer>
+
+</body>
+</html>

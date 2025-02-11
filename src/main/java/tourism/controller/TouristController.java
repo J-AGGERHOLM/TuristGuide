@@ -3,6 +3,7 @@ package tourism.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tourism.model.TouristAttraction;
 import tourism.service.TouristService;
@@ -10,7 +11,7 @@ import tourism.service.TouristService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/attractions")
+@RequestMapping("/")
 public class TouristController {
 
 
@@ -20,34 +21,49 @@ public class TouristController {
         this.touristService = touristService;
     }
 
+    //http://localhost:8080/
+@GetMapping("/")
+public String getIndex(){
+        return "index";
+}
 
+    //http://localhost:8080/attractions
 
-    @GetMapping("")
-    public ResponseEntity<List<TouristAttraction>> getAttractions(){
+    @GetMapping("/attractions")
+    public String getAttractions(Model model){
         List<TouristAttraction> touristAttractions = touristService.seeAttractions();
-        return new ResponseEntity<>(touristAttractions, HttpStatus.OK);
+        model.addAttribute("attractions", touristAttractions);
+        return "attractions";
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name){
-        TouristAttraction touristAttraction = touristService.findByName(name);
-        return new ResponseEntity<>(touristAttraction,HttpStatus.OK);
+
+    //http://localhost:8080/attractions/Napoli
+
+    @GetMapping("/attractions/{name}")
+    public String viewAttraction(@PathVariable String name, Model model) {
+        TouristAttraction attraction = touristService.findByName(name);
+        model.addAttribute("attraction", attraction);
+        return "attraction-detail";
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<TouristAttraction> addTouristAttraction(@RequestBody String name, String description){
+
+    @PostMapping("/attractions/add")
+    public String addTouristAttraction(@RequestParam String name, @RequestParam String description, Model model) {
         TouristAttraction newTouristAttraction = touristService.addAttraction(name, description);
-        return new ResponseEntity<>(newTouristAttraction, HttpStatus.CREATED);
-
+        model.addAttribute("newAttraction", newTouristAttraction);
+        return "newAttraction";
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<TouristAttraction> updateAttraction(@RequestBody TouristAttraction updatedAttraction){
+
+    @PostMapping("/attractions/update")
+    public String updateAttraction(@ModelAttribute TouristAttraction updatedAttraction, Model model) {
         TouristAttraction touristAttraction = touristService.editAttraction(updatedAttraction.getName(), updatedAttraction.getDescription());
-        return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
+        model.addAttribute("updatedAttraction", touristAttraction);
+        return "attraction-detail";
     }
 
-    @DeleteMapping("/delete/{name}")
+
+    @DeleteMapping("/attractions/delete/{name}")
     public ResponseEntity<String> deleteAttraction(@PathVariable String name) {
         boolean isDeleted = touristService.removeAttraction(name);
 

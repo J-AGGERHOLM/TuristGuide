@@ -1,0 +1,127 @@
+/* Base Styles */
+body {
+    background-color: #9ec9c9;
+    font-family: "Sans Serif Collection";
+    min-height: 100vh;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background-image: url("../images/Copenhagen-Guide-jpg-1534x884.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 200%;
+    font-family: "fantasy";
+    border-radius: 10px;
+    grid-area: header;
+}
+
+/* Navigation (Horizontal Below Header) */
+nav {
+    background-color: #9ec9c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    grid-area: nav;
+}
+
+/* Ensures full width usage */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%; /* Makes the ul take full width of nav */
+}
+
+nav li {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1; /* Makes each li expand equally */
+}
+
+/* Optional: Hover effect for better UI */
+nav li:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+}
+
+
+nav li:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    grid-area: main;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between items */
+    padding: 5px;
+    font-size: 0.8em; /* Small and subtle */
+    color: rgba(0, 0, 0, 0.6); /* Soft, muted text */
+    background: transparent; /* No solid background */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Faint top border */
+}
+
+.footer a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6); /* Muted link color */
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Grid for Larger Screens */
+@media (min-width: 40em) {
+    body {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main main"
+            "footer footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+}
+
+/* Assign Grid Areas */
+header { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+footer { grid-area: footer; }
