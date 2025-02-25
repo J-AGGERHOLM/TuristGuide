@@ -1,6 +1,7 @@
 package tourism.service;
 
 import org.springframework.stereotype.Service;
+import tourism.model.Byer;
 import tourism.model.TouristAttraction;
 import tourism.repository.TouristRepository;
 
@@ -24,7 +25,7 @@ public class TouristService {
         return touristRepository.removeAttraction(name);
     }
 
-    public TouristAttraction editAttraction(String name, String newDescription, String imagePath, List<String> tags, String by) {
+    public TouristAttraction editAttraction(String name, String newDescription, String imagePath, List<String> tags, Byer by) {
         return touristRepository.editAttraction(name, newDescription, imagePath, tags, by);
     }
 

@@ -8,9 +8,9 @@ public class TouristAttraction {
     private String description;
     private String imagePath;
     private List<String> tags;
-    private String by;
+    private Byer by;
 
-    public TouristAttraction(String name, String description, String imagePath, List<String> tags, String by){
+    public TouristAttraction(String name, String description, String imagePath, List<String> tags, Byer by){
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
@@ -54,12 +54,12 @@ public class TouristAttraction {
     }
 
 
-    public String getBy() {
+    public Byer getBy() {
         return by;
     }
 
 
-    public void setBy(String by) {
+    public void setBy(Byer by) {
         this.by = by;
     }
 

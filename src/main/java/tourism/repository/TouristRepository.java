@@ -1,6 +1,7 @@
 package tourism.repository;
 
 import org.springframework.stereotype.Repository;
+import tourism.model.Byer;
 import tourism.model.TouristAttraction;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class TouristRepository {
                         "Lægger du vejen forbi Den Lille Havfrue på Langelinie, kan du passende afsætte tid til en gåtur på det smukke Kastellet og så gå forbi den Danske Kongefamilies residens, Amalienborg Slot på vej ind til centrum. I gåafstand fra Den Lille Havfrue finder du desuden Restaurant Lumskebugten, som er i topklasse, når det kommer til en god, dansk frokost eller middag.",
                 "denLilleHavfrue.webp",
                 List.of("Kultur", "Statue"),
-                "København")
+                Byer.KØBENHAVN)
         );
 
 
@@ -76,7 +77,7 @@ public class TouristRepository {
                         "De fleste forlystelser kører, og restauranterne er åbne også til efterår, jul og nytår.",
                 "tivoli.webp",
                 List.of("Kultur", "Park", "Forlystelser"),
-                "København")
+                Byer.KØBENHAVN)
         );
 
 
@@ -94,7 +95,7 @@ public class TouristRepository {
                 "\n" +
                 "Tjek dagens program før dit besøg på zoo.dk", "zoologiskHave.jpg",
                 List.of("Natur", "Park", "Dyr"),
-                "København")
+                Byer.KØBENHAVN)
         );
 
 
@@ -114,14 +115,14 @@ public class TouristRepository {
                         "Et besøg på Den Blå Planet er en unik oplevelse, hvor underholdning, fascination og viden kombineres i spektakulære rammer.",
                 "denBlåPlanet.jpeg",
                 List.of("Natur", "Park", "Dyr"),
-                "København")
+                Byer.KØBENHAVN)
         );
 
         addAttraction(new TouristAttraction("Jailhouse",
                 "pizaaaa",
                 "jailHouse.jpg",
                 List.of("Byliv", "LGBTQ+"),
-                "København")
+                Byer.KØBENHAVN)
         );
 //        addAttraction("Amalienborg Slot", "sadd vodka");
     }
@@ -142,7 +143,7 @@ public class TouristRepository {
     }
 
 
-    public TouristAttraction editAttraction(String name, String newDescription, String imagePath, List<String> tags, String by) {
+    public TouristAttraction editAttraction(String name, String newDescription, String imagePath, List<String> tags, Byer by) {
 
         for (TouristAttraction attraction : touristAttractions) {
             if (attraction.getName().equals(name)) {
@@ -165,7 +166,7 @@ public class TouristRepository {
                 return touristAttraction;
             }
         }
-        return new TouristAttraction("empty", "Attraction not found", "notFound", List.of("empty"), "nowhere");
+        return new TouristAttraction("empty", "Attraction not found", "notFound", List.of("empty"), Byer.NULL);
     }
 
 }

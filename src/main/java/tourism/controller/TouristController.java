@@ -5,9 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import tourism.model.Byer;
 import tourism.model.TouristAttraction;
 import tourism.service.TouristService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -63,6 +65,9 @@ public String getIndex(){
     public String addAttraction(Model model) {
         TouristAttraction attraction = new TouristAttraction();
         model.addAttribute("attraction", attraction);
+        model.addAttribute("byer", Byer.values());
+
+
         return "addAttraction-form";
     }
 
