@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html xmlns : th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Index</title>
-  <link rel="stylesheet" th:href="@{/static/css/style.css}">
-
+  <title th:text="${attraction.name}">Attraction Page</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Attraction detail</h1>
+
+<!-- Display Attraction Name as Title -->
+<header class="header">
+<h1 class="headline"><strong th:text="${attraction.name}"></strong></h1>
+</header>
+
+<main>
+<img th:src="@{/images/{img}(img=${attraction.imagePath})}" alt="Attraction Image" class="mainImage">
+
+  <p class="description"> <string th:text="${attraction.description}"></string></p>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+
 
 </body>
 </html>

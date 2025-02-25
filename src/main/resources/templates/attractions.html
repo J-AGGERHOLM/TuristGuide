@@ -26,15 +26,15 @@
             class="attractionListIl"
             th:style="'background-image: url(' + @{/images/{img}(img=${attraction.imagePath})} + ');'">
             <a th:href="@{/attractions/{name}(name=${attraction.name})}" th:text="${attraction.name}"></a>
+            <a th:href="@{/attractions/{name}/tags(name=${attraction.name})}" >
+                <button class = "button">Tags</button>
+            </a>
         </li>
     </ul>
 </main>
 
-<footer class="footer">
-    <p><a href="mailto:info@example.com">info@example.com</a></p>
-    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
-    <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span> Tourist Guide</p>
-</footer>
+<div th:replace="fragments/footer :: footer"></div>
+
 
 </body>
 </html>

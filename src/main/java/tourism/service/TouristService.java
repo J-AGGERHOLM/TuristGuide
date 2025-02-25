@@ -16,16 +16,16 @@ public class TouristService {
     }
 
 
-    public TouristAttraction addAttraction(String name, String description, String imagePath) {
-        return touristRepository.addAttraction(name, description, imagePath);
-    }
+//    public TouristAttraction addAttraction(String name, String description, String imagePath, List<String> tags, String by) {
+//        return touristRepository.addAttraction(name, description, imagePath, tags, by);
+//    }
 
     public boolean removeAttraction(String name) {
         return touristRepository.removeAttraction(name);
     }
 
-    public TouristAttraction editAttraction(String name, String newDescription, String imagePath) {
-        return touristRepository.editAttraction(name, newDescription, imagePath);
+    public TouristAttraction editAttraction(String name, String newDescription, String imagePath, List<String> tags, String by) {
+        return touristRepository.editAttraction(name, newDescription, imagePath, tags, by);
     }
 
     public List<TouristAttraction> seeAttractions() {
@@ -36,4 +36,8 @@ public class TouristService {
         return touristRepository.findByName(name);
     }
 
+
+    public void addAttraction(TouristAttraction attraction) {
+        touristRepository.addAttraction(attraction);
+    }
 }

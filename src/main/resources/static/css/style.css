@@ -88,6 +88,20 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-items: center;
+    margin: auto;
+}
+
+main img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+
+}
+
+.description {
+    text-align: justify;
+    padding: 10px;
+    max-width: 50%;
 }
 
 .headline {
@@ -193,6 +207,8 @@ li a {
 .footer a:hover {
     text-decoration: underline;
 }
+
+
 
 
 /* Responsive Grid for Larger Screens */

@@ -1,0 +1,93 @@
+/* Base Styles */
+body {
+    background-color: #9ec9c9;
+    font-family: "Sans Serif Collection", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tags Table */
+.TagsTable {
+    width: 60%;
+    margin: 30px auto; /* Centering */
+    border-collapse: collapse;
+    font-family: 'Playfair Display', serif; /* Match heading font */
+    background-color: white; /* Match main section */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+}
+
+/* Table Header */
+.TagsTable th {
+    background-color: #7695ff; /* Matching theme */
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Rows */
+.TagsTable td {
+    background-color: white; /* Solid background */
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    font-size: 18px;
+}
+
+/* Remove Unnecessary Borders */
+.TagsTable th:first-child, .TagsTable td:first-child {
+    border-left: none;
+}
+
+.TagsTable th:last-child, .TagsTable td:last-child {
+    border-right: none;
+}
+
+/* Button Styling */
+Button {
+    display: inline-block;
+    background-color: #7695ff; /* Matches table header */
+    color: white;
+    font-family: 'Poppins', sans-serif; /* Cohesive font choice */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    margin: 15px auto;
+    transition: all 0.2s ease-in-out;
+}
+
+Button:active {
+    background-color: #5a7ddf; /* Darker shade when pressed */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .TagsTable {
+        width: 90%;
+    }
+    .TagsTable th {
+        font-size: 18px;
+    }
+    .TagsTable td {
+        font-size: 16px;
+        padding: 10px;
+    }
+}

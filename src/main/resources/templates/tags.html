@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/css/tablesStyle.css}">
+</head>
+<body>
+
+
+<table class="TagsTable">
+    <tr>
+        <th th:text="${attraction.name} +' Tags'"></th>
+    </tr>
+    <tr>
+        <tr th:each="tag : ${tags}">
+        <td th:text="${tag}"></td>
+    </tr>
+</table>
+
+
+<p>This is a site</p>
+
+
+<a th:href="@{/attractions}">
+    <button class="button">Tilbage</button>
+</a>
+
+</body>
+</html>

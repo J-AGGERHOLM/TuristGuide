@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns : th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>footer</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Footer Fragment -->
+<div th:fragment ="footer">
+  <footer class="footer">
+    <p><a href="mailto:info@example.com">info@example.com</a></p>
+    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    <p>&copy; <span th:text="${#dates.year(#dates.createNow())}"></span> Tourist Guide</p>
+  </footer>
+</div>
+
+</body>
+</html>

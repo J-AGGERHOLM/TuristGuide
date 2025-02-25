@@ -15,7 +15,7 @@ import java.util.List;
 public class TouristController {
 
 
-    private final TouristService touristService;
+    private  TouristService touristService;
 
     public TouristController(TouristService touristService) {
         this.touristService = touristService;
@@ -47,17 +47,38 @@ public String getIndex(){
     }
 
 
-    @PostMapping("/attractions/add")
-    public String addTouristAttraction(@RequestParam String name, @RequestParam String description, @RequestParam String imagePath, Model model) {
-        TouristAttraction newTouristAttraction = touristService.addAttraction(name, description,imagePath);
-        model.addAttribute("newAttraction", newTouristAttraction);
-        return "newAttraction";
+    @GetMapping("/attractions/{name}/tags")
+        public String viewTags(@PathVariable String name, @RequestParam (required = false) List<String> tags, Model model) {
+            TouristAttraction attraction = touristService.findByName(name);
+
+            model.addAttribute("attraction", attraction);
+            model.addAttribute("tags", attraction.getTags());
+            return "tags";
+        }
+
+
+
+
+    @GetMapping("/attractions/add")
+    public String addAttraction(Model model) {
+        TouristAttraction attraction = new TouristAttraction();
+        model.addAttribute("attraction", attraction);
+        return "addAttraction-form";
     }
+
+    @PostMapping("/attractions/save")
+    public String addAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
+        touristService.addAttraction(attraction);
+        return "redirect:/attractions";
+    }
+
+
+
 
 
     @PostMapping("/attractions/update")
     public String updateAttraction(@ModelAttribute TouristAttraction updatedAttraction, Model model) {
-        TouristAttraction touristAttraction = touristService.editAttraction(updatedAttraction.getName(), updatedAttraction.getDescription(), updatedAttraction.getImagePath());
+        TouristAttraction touristAttraction = touristService.editAttraction(updatedAttraction.getName(), updatedAttraction.getDescription(), updatedAttraction.getImagePath(), updatedAttraction.getTags(), updatedAttraction.getBy());
         model.addAttribute("updatedAttraction", touristAttraction);
         return "attraction-detail";
     }
