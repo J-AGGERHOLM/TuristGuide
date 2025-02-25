@@ -8,8 +8,7 @@
 <body>
 
 <!-- this here is the code for the form-->
-<form action="#" th:action="@{/add}" th:object="${attraction}" method="post">
-
+<form th:action="@{/attraction/save}" th:object="${attraction}" method="post">
   <!-- this is the code for writing a name menu: -->
   <label for="name">By Navn:</label>
   <input id="name" name="name" th:field="*{name}" placeholder="Angiv Navn">

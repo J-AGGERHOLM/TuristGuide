@@ -71,7 +71,7 @@ public String getIndex(){
         return "addAttraction-form";
     }
 
-    @PostMapping("/attractions/save")
+    @PostMapping("/attraction/save")
     public String addAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
         touristService.addAttraction(attraction);
         return "redirect:/attractions";
